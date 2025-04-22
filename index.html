@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Letter in Envelope</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Old Letter</title>
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<div class="container">
-  <div class="envelope" onclick="revealLetter()">
-    <div class="flap"></div>
-    <div class="body"></div>
-    <div class="letter" id="letter">
-      <div class="handwriting" id="handwriting">
-        <!-- Lines will be typed here -->
-      </div>
+<div class="paper-wrapper" onclick="unfoldPaper()">
+  <div class="paper" id="paper">
+    <div class="handwriting" id="handwriting">
+      <!-- Text will be typed here -->
     </div>
   </div>
 </div>
