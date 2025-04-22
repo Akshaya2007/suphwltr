@@ -1,36 +1,37 @@
 const lines = [
-  "Dear Friend,",
+  "Dear You,",
   "",
-  "Just wanted to let you know...",
-  "Life is a beautiful journey,",
-  "and you're doing amazing.",
+  "This message has been hidden for ages...",
+  "Just waiting to be found by someone like you.",
   "",
-  "Keep going and smile always!",
+  "Remember, old paper carries the deepest truths.",
+  "And sometimes, the quietest voices say the loudest things.",
   "",
-  "Warm regards,",
-  "The Web :)"
+  "Yours truly,",
+  "Time."
 ];
 
 let index = 0;
+let hasUnfolded = false;
 
-function revealLetter() {
-  const flap = document.querySelector('.flap');
-  const letter = document.getElementById('letter');
+function unfoldPaper() {
+  if (hasUnfolded) return; // prevent re-trigger
+  hasUnfolded = true;
+
+  const paper = document.getElementById('paper');
   const handwriting = document.getElementById('handwriting');
 
-  flap.style.transform = 'rotateX(180deg)';
-  letter.classList.add('show');
-
+  paper.classList.add('unfolded');
   handwriting.innerHTML = '';
   index = 0;
-  typeLine();
+
+  setTimeout(typeLine, 1300); // wait for unfold animation
 }
 
 function typeLine() {
   if (index < lines.length) {
-    const handwriting = document.getElementById('handwriting');
-    handwriting.innerHTML += lines[index] + '\n';
+    document.getElementById('handwriting').innerHTML += lines[index] + '\n';
     index++;
-    setTimeout(typeLine, 500); // speed of line typing
+    setTimeout(typeLine, 600);
   }
 }
