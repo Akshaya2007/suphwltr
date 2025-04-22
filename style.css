@@ -1,0 +1,78 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Courier New', Courier, monospace;
+  height: 100%;
+  background: #fbeec1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  width: 90vw;
+  max-width: 400px;
+  perspective: 1000px;
+}
+
+.envelope {
+  position: relative;
+  width: 100%;
+  padding-top: 75%; /* maintain aspect ratio */
+  cursor: pointer;
+}
+
+.flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: #f8c291;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  z-index: 3;
+  transition: transform 0.6s ease;
+}
+
+.body {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  background: #f19066;
+  z-index: 1;
+}
+
+.letter {
+  position: absolute;
+  bottom: 0;
+  left: 5%;
+  width: 90%;
+  height: 100%;
+  background: #fff;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  transform: translateY(100%);
+  transition: transform 1s ease;
+  z-index: 2;
+  overflow: hidden;
+  padding: 1em;
+  box-sizing: border-box;
+}
+
+.letter.show {
+  transform: translateY(0%);
+}
+
+.handwriting {
+  font-family: 'Patrick Hand', cursive;
+  white-space: pre-wrap;
+  font-size: 1rem;
+  line-height: 1.5em;
+}
+
+@media (max-width: 500px) {
+  .handwriting {
+    font-size: 0.9rem;
+  }
+}
