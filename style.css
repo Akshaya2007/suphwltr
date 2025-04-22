@@ -1,74 +1,56 @@
 body, html {
   margin: 0;
   padding: 0;
-  font-family: 'Courier New', Courier, monospace;
-  height: 100%;
-  background: #fbeec1;
+  background: #f3e5ab;
+  font-family: 'Patrick Hand', cursive;
+  height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
-.container {
+.paper-wrapper {
   width: 90vw;
-  max-width: 400px;
+  max-width: 500px;
+  aspect-ratio: 3/4;
   perspective: 1000px;
 }
 
-.envelope {
-  position: relative;
+.paper {
   width: 100%;
-  padding-top: 75%; /* maintain aspect ratio */
-  cursor: pointer;
-}
-
-.flap {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 50%;
-  background: #f8c291;
-  clip-path: polygon(0 0, 100% 0, 50% 100%);
-  z-index: 3;
-  transition: transform 0.6s ease;
-}
-
-.body {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 60%;
-  background: #f19066;
-  z-index: 1;
-}
-
-.letter {
-  position: absolute;
-  bottom: 0;
-  left: 5%;
-  width: 90%;
   height: 100%;
-  background: #fff;
-  box-shadow: 0 0 8px rgba(0,0,0,0.2);
-  transform: translateY(100%);
-  transition: transform 1s ease;
-  z-index: 2;
-  overflow: hidden;
-  padding: 1em;
+  background: #fdf6c9;
+  background: radial-gradient(#fdf6c9, #e5d17f);
+  border: 2px dashed #d8b766;
+  clip-path: polygon(
+    0% 10%, 5% 0%, 95% 0%, 100% 10%, 
+    100% 90%, 95% 100%, 5% 100%, 0% 90%
+  );
+  box-shadow: 0 0 25px rgba(0,0,0,0.3);
+  padding: 2em 1.5em;
   box-sizing: border-box;
+  overflow: hidden;
+  filter: sepia(0.2) brightness(0.95) contrast(1.1);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 1.2s ease;
 }
 
-.letter.show {
-  transform: translateY(0%);
+.paper.unfolded {
+  transform: scaleY(1);
 }
 
 .handwriting {
-  font-family: 'Patrick Hand', cursive;
   white-space: pre-wrap;
   font-size: 1rem;
-  line-height: 1.5em;
+  color: #3e3e3e;
+  line-height: 1.7em;
+  opacity: 0;
+  transition: opacity 0.5s ease 1.2s;
+}
+
+.paper.unfolded .handwriting {
+  opacity: 1;
 }
 
 @media (max-width: 500px) {
